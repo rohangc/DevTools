@@ -1,0 +1,13 @@
+# Tweak the parse settings
+CompileFlags:
+  # Treat all files as C++, enable more warnings, use C++14
+  Add: [-std=c++14, -Wall, -WExtra, -Wno-c++98-compat, -ferror-limit=0]
+
+  # Strip all other flags (from other compilers like MSVC, for example)
+  Remove: [-b*, -EHsc, -G*, -guard:cf, -MD*, -nologo*, -Od*, -std:c++14*, -w*, -Z*]
+
+  # Use clang++ as the compiler by replacing argv[0]
+  Compiler: clang++
+
+Diagnostics:
+  UnusedIncludes: Strict
